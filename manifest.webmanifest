@@ -1,0 +1,24 @@
+{
+  "background_color": "#3296c8",
+  "description": "由 Hao Studio 提供给 云大附中西林分校 2024届 的学号选择系统软件",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "云附西林 2024届学号选择系统",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "学号选择",
+  "id": "com.hao.hsir.pwa",
+  "start_url": "/",
+  "theme_color": "#3296c8",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/index.files/image/appicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": []
+}
