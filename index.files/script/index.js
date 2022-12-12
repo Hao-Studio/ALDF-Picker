@@ -100,7 +100,8 @@ function Luck_Draw() {
         Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
         //实际使用时我们了解到 random.org 提供的随机数中大于等于40的数较多，故尝试削减其概率，重新赋值。Leo注。
         if (Number >= 40) {
-            Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice-1];)
+            console.warn("随机数算法抛出了大于等于40的数，进行重新决策。");
+            Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice-1];
         }
         console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
         Load();
