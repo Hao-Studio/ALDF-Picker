@@ -98,6 +98,10 @@ function Luck_Draw() {
         console.info("序列混淆随机数初始化...");
         var Choice = Math.round(Math.random() * 9);
         Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
+        //实际使用时我们了解到 random.org 提供的随机数中大于等于40的数较多，故尝试削减其概率，重新赋值。Leo注。
+        if (Number >= 40) {
+            Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice-1];)
+        }
         console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
         Load();
     }
