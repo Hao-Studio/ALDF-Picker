@@ -155,7 +155,7 @@ function Luck_Draw() {
                 document.getElementById("Button").disabled=false;
                 if (CanSend) {
                     console.info("发送桌面通知...");
-                    var NotificationObject = new Notification("选择结果",{dir: "auto",lang: "zh-cn",body: "抽中了" + Number + "号学生。",tag: "com.hao.hsir.pwa.notification",icon: "/index.files/image/appicon.png"});
+                    var NotificationObject = new Notification("选择结果",{dir: "auto",lang: "zh-cn",body: "抽中了" + Number + "号学生。",tag: "tk.hao.hldf.pwa.notification",icon: "/index.files/image/appicon.png"});
                     NotificationObject.onshow = function () {
                         console.log("通知已展示。");
                     }
