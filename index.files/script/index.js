@@ -102,6 +102,11 @@ function Luck_Draw() {
         if (Number >= 40) {
             console.warn("随机数算法抛出了大于等于40的数，进行重新决策。");
             Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
+        } else if (window.sessionStorage.getItem("Number")) {
+            console.warn("随机数算法抛出了与上一次结果相同的数，进行重新决策。");
+            if (Number = window.sessionStorage.getItem("Number")) {
+                Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
+            }
         }
         console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
         Load();
