@@ -103,7 +103,7 @@ function Luck_Draw() {
             console.warn("随机数算法抛出了大于等于40的数，进行重新决策。");
             Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
         } else if (window.sessionStorage.getItem("Number")) {
-            if (Number = window.sessionStorage.Number) {
+            if (Number == window.sessionStorage.Number) {
                 console.warn("随机数算法抛出了与上一次结果相同的数，进行重新决策。");
                 Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
             }
