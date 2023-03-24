@@ -20,5 +20,11 @@
       "purpose": "any"
     }
   ],
+  "protocol_handlers": [
+    {
+      "protocol": "hsir-picker",
+      "url": "/%s"
+    }
+  ],
   "shortcuts": []
 }
