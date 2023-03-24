@@ -22,7 +22,7 @@
   ],
   "protocol_handlers": [
     {
-      "protocol": "hsir-picker",
+      "protocol": "web+hsir-picker",
       "url": "/%s"
     }
   ],
