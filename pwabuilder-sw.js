@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching Plus
 
-importScripts('https://unpkg.com/workbox-cdn/workbox/workbox-sw.js');
+importScripts('https://unpkg.com/workbox-cdn@5.1.4/workbox/workbox-sw.js');
 
 const HTML_CACHE = "html";
 const JS_CACHE = "javascript";
