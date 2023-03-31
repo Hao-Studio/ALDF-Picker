@@ -55,6 +55,31 @@ function CheckNet() {
         console.log("Entry PWA Offline Mode.");
     }
 }
+function GetcbState() {
+    console.info("向 localStorage 获取cb开关状态值...");
+    if (window.localStorage.getItem("cbState")) {
+        console.log("cbState 键值存在。");
+        if (window.localStorage.cbState == "true") {
+            console.info("cb.checked==true, 设置cb开关状态为开。");
+            return true;
+        } else if (window.localStorage.cbState == "false") {
+            console.info("cb.checked==false, 设置cb开关状态为关。");
+            return false;
+        }
+    } else {
+        console.info("cbState 在 localStorage 不存在值, 设置cb开关状态为开 (默认)。");
+        window.localStorage.setItem("cbState","true");
+        return true;
+    }
+}
+function SetcbState() {
+    console.info("保存cb开关状态...");
+    if (document.getElementById("cb").checked == true) {
+        window.localStorage.setItem("cbState","true");
+    } else {
+        window.localStorage.setItem("cbState","false");
+    }
+}
 window.addEventListener('beforeinstallprompt',e => {
     if (window.matchMedia('(display-mode: standalone)').matches) {
         return e.preventDefault();
@@ -178,4 +203,9 @@ function Luck_Draw() {
         }
     }
 }
-window.onload = CheckNet
+function PageOnLoad() {
+    CheckNet();
+    document.getElementById("cb").checked = GetcbState();
+    document.getElementById("cb").onclick = _ => SetcbState();
+}
+window.onload = PageOnLoad
