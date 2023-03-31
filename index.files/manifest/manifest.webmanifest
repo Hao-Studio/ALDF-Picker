@@ -26,5 +26,18 @@
       "url": "/%s"
     }
   ],
-  "shortcuts": []
+  "shortcuts": [
+    {
+      "name": "新建窗口",
+      "description": "在新窗口中打开 2024届学号选择系统",
+      "url": "/",
+      "icons": [
+        {
+          "src": "https://hsir-picker.hao-studio.tk/index.files/image/open_in_new_logo.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
 }
