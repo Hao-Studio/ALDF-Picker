@@ -35,7 +35,7 @@ function APISetup(apiKey) {
     XMLHttp.open("POST","https://api.random.org/json-rpc/4/invoke", true);
     XMLHttp.timeout = 4000;
     XMLHttp.setRequestHeader("Content-Type","application/json");
-    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 49,"min": 1,"max": 49,"replacement": false},"id": 24}));
+    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 10,"min": 1,"max": 49,"replacement": false},"id": 24}));
 }
 function APICallback() {
     console.log("random.org API返回：" + XMLHttp.responseText);
@@ -122,7 +122,7 @@ function Luck_Draw() {
     XMLHttp.onload = function() {
         var API = APICallback();
         console.info("序列混淆随机数初始化...");
-        var Choice = Math.round(Math.random() * 48);
+        var Choice = Math.round(Math.random() * 9);
         NumberArray = API.result.random.data.sort(function(){return Math.random()-0.5});
         Number = NumberArray[Choice];
         if (window.sessionStorage.getItem("Number")) {
