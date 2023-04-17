@@ -35,7 +35,7 @@ function APISetup(apiKey) {
     XMLHttp.open("POST","https://api.random.org/json-rpc/4/invoke", true);
     XMLHttp.timeout = 4000;
     XMLHttp.setRequestHeader("Content-Type","application/json");
-    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 10,"min": 1,"max": 49,"replacement": false},"id": 24}));
+    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 49,"min": 1,"max": 49,"replacement": false},"id": 24}));
 }
 function APICallback() {
     console.log("random.org API返回：" + XMLHttp.responseText);
@@ -117,20 +117,22 @@ function Luck_Draw() {
     var $ = mdui.$;
     var SnackBar = mdui.snackbar({message:'正在处理请求...',position:'bottom',timeout:0});
     APISetup("15e65e2a-3e8d-4c00-9070-f701e67f4e64");
+    var NumberArray;
     var Number;
     XMLHttp.onload = function() {
         var API = APICallback();
         console.info("序列混淆随机数初始化...");
-        var Choice = Math.round(Math.random() * 9);
-        Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
+        var Choice = Math.round(Math.random() * 48);
+        NumberArray = API.result.random.data.sort(function(){return Math.random()-0.5});
+        Number = NumberArray[Choice];
         if (window.sessionStorage.getItem("Number")) {
             if (Number == window.sessionStorage.Number) {
                 console.warn("随机数算法抛出了与上一次结果相同的数，进行重新决策。");
-                Number = API.result.random.data.sort(function(){return Math.random()-0.5})[Choice];
+                Number = NumberArray.sort(function(){return Math.random()-0.5})[Choice];
             }
         }
         console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
-        Load();
+        Load(true);
     }
     function GetRandomInt(Min,Max) {
         var byteArray = new Uint8Array(1);
@@ -143,14 +145,14 @@ function Luck_Draw() {
     XMLHttp.onerror = function() {
         console.info("API 请求出错，或应用运行在离线模式下，使用本地密码学随机数。");
         Number = GetRandomInt(1,49);
-        Load();
+        Load(false);
     }
     XMLHttp.ontimeout = function() {
         console.info("API 请求 TIMED_OUT，被迫使用本地密码学随机数。");
         Number = GetRandomInt(1,49);
-        Load();
+        Load(false);
     }
-    function Load() {
+    function Load(IsFromAPI) {
         console.log("关闭 SnackBar。");
         SnackBar.close();
         console.log("隐藏进度条。");
@@ -166,6 +168,7 @@ function Luck_Draw() {
         console.log("Interval 启动。");
         var Interval = setInterval(NewStyle,100);
         var NewNum = 1;
+        var Counter = 0;
         function NewStyle() {
             if (NewNum == Number) {
                 console.log("Interval 停止。");
@@ -196,6 +199,10 @@ function Luck_Draw() {
                         console.log("通知已关闭。");
                     }
                 }
+            } else if (IsFromAPI) {
+                NewNum = NumberArray[Counter];
+                h1Obj.innerHTML = NewNum.toString().padStart(2,0);
+                Counter += 1;
             } else {
                 NewNum += 1;
                 h1Obj.innerHTML = NewNum.toString().padStart(2,0);
