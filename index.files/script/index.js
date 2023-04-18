@@ -35,7 +35,7 @@ function APISetup(apiKey) {
     XMLHttp.open("POST","https://api.random.org/json-rpc/4/invoke", true);
     XMLHttp.timeout = 4000;
     XMLHttp.setRequestHeader("Content-Type","application/json");
-    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 10,"min": 1,"max": 49,"replacement": false},"id": 24}));
+    XMLHttp.send(JSON.stringify({"jsonrpc": "2.0","method": "generateIntegers","params": {"apiKey": apiKey,"n": 1,"min": 0,"max": 48,"replacement": false},"id": 24}));
 }
 function APICallback() {
     console.log("random.org API返回：" + XMLHttp.responseText);
@@ -121,9 +121,9 @@ function Luck_Draw() {
     var Number;
     XMLHttp.onload = function() {
         var API = APICallback();
-        console.info("序列混淆随机数初始化...");
-        var Choice = Math.round(Math.random() * 9);
-        NumberArray = API.result.random.data.sort(function(){return Math.random()-0.5});
+        console.info("种子决策随机数初始化...");
+        var Choice = API.result.random.data[0];
+        NumberArray = Array.from(Array(49).keys(),n => n + 1).sort(function(){return Math.random()-0.5});
         Number = NumberArray[Choice];
         if (window.sessionStorage.getItem("Number")) {
             if (Number == window.sessionStorage.Number) {
@@ -166,7 +166,7 @@ function Luck_Draw() {
             console.info("cb.checked==false, 音乐不播放。");
         }
         console.log("Interval 启动。");
-        var Interval = setInterval(NewStyle,100);
+        var Interval = setInterval(NewStyle,150);
         var NewNum = 1;
         var Counter = 0;
         function NewStyle() {
