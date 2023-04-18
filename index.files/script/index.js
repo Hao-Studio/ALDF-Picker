@@ -214,7 +214,7 @@ function PageOnLoad() {
     CheckNet();
     document.getElementById("cb").checked = GetcbState();
     document.getElementById("cb").onclick = _ => SetcbState();
-    var NumParam = URLSearchParams.get("number");
+    var NumParam = new URLSearchParams(document.location.search.substring(1)).get("number");
     if (NumParam != null) {
         document.getElementById("NumH1").innerHTML = NumParam.padStart(2,0);
     }
