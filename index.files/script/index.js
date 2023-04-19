@@ -117,22 +117,8 @@ function Luck_Draw() {
     var $ = mdui.$;
     var SnackBar = mdui.snackbar({message:'正在处理请求...',position:'bottom',timeout:0});
     APISetup("15e65e2a-3e8d-4c00-9070-f701e67f4e64");
-    var NumberArray;
-    var Number;
     XMLHttp.onload = function() {
-        var API = APICallback();
-        console.info("种子决策随机数初始化...");
-        var Choice = API.result.random.data[0];
-        NumberArray = Array.from(Array(49).keys(),n => n + 1).sort(function(){return Math.random()-0.5});
-        Number = NumberArray[Choice];
-        if (window.sessionStorage.getItem("Number")) {
-            if (Number == window.sessionStorage.Number) {
-                console.warn("随机数算法抛出了与上一次结果相同的数，进行重新决策。");
-                Number = NumberArray.sort(function(){return Math.random()-0.5})[Choice];
-            }
-        }
-        console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
-        Load(true);
+        Load(APICallback().result.random.data[0]);
     }
     function GetRandomInt(Min,Max) {
         var byteArray = new Uint8Array(1);
@@ -144,15 +130,23 @@ function Luck_Draw() {
     }
     XMLHttp.onerror = function() {
         console.info("API 请求出错，或应用运行在离线模式下，使用本地密码学随机数。");
-        Number = GetRandomInt(1,49);
-        Load(false);
+        Load(GetRandomInt(0,48));
     }
     XMLHttp.ontimeout = function() {
         console.info("API 请求 TIMED_OUT，被迫使用本地密码学随机数。");
-        Number = GetRandomInt(1,49);
-        Load(false);
+        Load(GetRandomInt(0,48));
     }
-    function Load(IsFromAPI) {
+    function Load(Choice) {
+        console.info("种子决策随机数初始化...");
+        var NumberArray = Array.from(Array(49).keys(),n => n + 1).sort(function(){return Math.random()-0.5});
+        var Number = NumberArray[Choice];
+        if (window.sessionStorage.getItem("Number")) {
+            if (Number == window.sessionStorage.Number) {
+                console.warn("随机数算法抛出了与上一次结果相同的数，进行重新决策。");
+                Number = NumberArray.sort(function(){return Math.random()-0.5})[Choice];
+            }
+        }
+        console.log("选择了索引号码为" + Choice + "的数。（即第" + (Choice + 1) + "个数）");
         console.log("关闭 SnackBar。");
         SnackBar.close();
         console.log("隐藏进度条。");
@@ -199,13 +193,10 @@ function Luck_Draw() {
                         console.log("通知已关闭。");
                     }
                 }
-            } else if (IsFromAPI) {
+            } else {
                 NewNum = NumberArray[Counter];
                 h1Obj.innerHTML = NewNum.toString().padStart(2,0);
                 Counter += 1;
-            } else {
-                NewNum += 1;
-                h1Obj.innerHTML = NewNum.toString().padStart(2,0);
             }
         }
     }
