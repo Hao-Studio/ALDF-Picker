@@ -23,7 +23,7 @@
   "protocol_handlers": [
     {
       "protocol": "web+hsir",
-      "url": "/?number=%s"
+      "url": "/%s"
     }
   ],
   "shortcuts": [
