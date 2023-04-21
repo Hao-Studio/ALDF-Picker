@@ -160,7 +160,7 @@ function Luck_Draw() {
             console.info("cb.checked==false, 音乐不播放。");
         }
         console.log("Interval 启动。");
-        var Interval = setInterval(NewStyle,150);
+        var Interval = setInterval(NewStyle,125);
         var NewNum = 1;
         var Counter = 0;
         function NewStyle() {
