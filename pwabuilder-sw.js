@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching Plus
 
-importScripts('https://hsir-picker.hao-studio.tk/index.files/script/pwa-sw/workbox-sw.js');
+importScripts('https://hsir-picker.pages.dev/index.files/script/pwa-sw/workbox-sw.js');
 
 const HTML_CACHE = "html";
 const JS_CACHE = "javascript";
