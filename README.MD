@@ -1,6 +1,6 @@
 # **ALDF-Picker**
-### **重要：烦请老师提交比赛数据时将这篇 Markdown 删掉，感谢老师！**
-### **[部署站点传送门](https://hsir-picker.hao-studio.tk)**
+### **重要：此项目已正式 EOL，Atomic Innovations 将不再负责维护！**
+### **[部署站点传送门](https://hsir-picker.pages.dev)**
 **YFXL 2024 届 (1) 班 定制项目 & 我的省科创作品**
 
 **由 Leo 霖 贡献**
@@ -11,7 +11,7 @@
 
 **后期这个项目可能 (咕咕咕~) 会使用 Vue 和 Node 重构，因为原生JS这种老旧的开发方式是该换了...吧。**
 
-**但是众所不知，由于 Limition Studio 已经并入 AtomOS Team，所以之后的支持将由 AtomOS Team 完成 (别跑，还是这个库)。**
+**但是众所不知，由于 Limition Studio 已经并入 Atomic Innovations，所以之后的支持将由 Atomic Inno 终止 (别跑，还是这个库)。**
 
 **貌似我几乎从来没有这么“认真”地去编写 Markdown 吧 (氵完了，经验+3，告辞！)🐶**
 ### **始终仍是永恒的重点：不用“谢”我！**
