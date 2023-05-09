@@ -1,5 +1,5 @@
-console.info("AtomOS 抽奖系统服务框架");
-console.info("Version 3.1.220623.1 (Stable Release，BugFix Update)\nPowered By AtomOS Team (原 Hao Studio)");
+console.info("Atomic 抽奖系统服务框架");
+console.info("Version 3.1.220623.1 (Stable Release，BugFix Update)\nPowered By Atomic Innovations (原 Hao Studio)");
 console.log("以下为调试日志。");
 document.onkeyup = KBUP;
 function KBUP() {
