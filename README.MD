@@ -1,5 +1,5 @@
 # **ALDF-Picker**
-### **重要：此项目已正式 EOL，Atomic Innovations 将不再负责维护！**
+### **重要：此项目已正式 EOL (2022/05/10) ，Atomic Innovations 将不再负责维护！**
 ### **[部署站点传送门](https://hsir-picker.pages.dev)**
 **YFXL 2024 届 (1) 班 定制项目 & 我的省科创作品**
 
@@ -9,7 +9,7 @@
 
 **这个项目我勉强支持了一下 PWA，希望这么实用的技术能够推广开来！**
 
-**后期这个项目可能 (咕咕咕~) 会使用 Vue 和 Node 重构，因为原生JS这种老旧的开发方式是该换了...吧。**
+**后期这个项目可能 bu (咕咕咕~) 会使用 Vue 和 Node 重构，因为原生JS这种老旧的开发方式是该换了...吧。**
 
 **但是众所不知，由于 Limition Studio 已经并入 Atomic Innovations，所以之后的支持将由 Atomic Inno 终止 (别跑，还是这个库)。**
 

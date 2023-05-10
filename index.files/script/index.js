@@ -1,5 +1,6 @@
 console.info("Atomic 抽奖系统服务框架");
-console.info("Version 3.1.220623.1 (Stable Release，BugFix Update)\nPowered By Atomic Innovations (原 Hao Studio)");
+console.info("Version 4.1.230510.1 (Stable Release，BugFix Update，EOL)\nPowered By Atomic Innovations (原 Hao Studio)");
+console.info("此系统已于 2023/05/10 正式 EOL，我们将不再进行任何维护！");
 console.log("以下为调试日志。");
 document.onkeyup = KBUP;
 function KBUP() {
@@ -178,7 +179,7 @@ function Luck_Draw() {
                 document.getElementById("Button").disabled=false;
                 if (CanSend) {
                     console.info("发送桌面通知...");
-                    var NotificationObject = new Notification("选择结果",{dir: "auto",lang: "zh-cn",body: "抽中了" + Number + "号学生。",tag: "com.atomos.hsir.pwa.notification",icon: "/index.files/image/appicon.png"});
+                    var NotificationObject = new Notification("选择结果",{dir: "auto",lang: "zh-cn",body: "抽中了" + Number + "号学生。",tag: "com.atomic.hsir.pwa.notification",icon: "/index.files/image/appicon.png"});
                     NotificationObject.onshow = function () {
                         console.log("通知已展示。");
                     }
@@ -209,5 +210,6 @@ function PageOnLoad() {
     if (NumParam != null) {
         document.getElementById("NumH1").innerHTML = NumParam.padStart(2,0);
     }
+    mdui.alert("此系统已于 2023/05/10 正式 EOL，我们将不再进行任何维护！","EOL");
 }
 window.onload = PageOnLoad

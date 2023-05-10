@@ -1,13 +1,13 @@
 {
   "background_color": "#3296c8",
-  "description": "由 Atomic Innovations 提供给 云大附中西林分校 2024届 的学号选择系统软件",
+  "description": "由 Atomic Innovations 提供给 云大附中西林分校 2024届 的学号选择系统软件 EOL",
   "dir": "ltr",
   "display": "standalone",
   "name": "云附西林 2024届学号选择系统",
   "orientation": "any",
   "scope": "/",
   "short_name": "学号选择",
-  "id": "com.atomos.hsir.pwa",
+  "id": "com.atomic.hsir.pwa",
   "start_url": "/",
   "theme_color": "#3296c8",
   "categories": [],
@@ -33,7 +33,7 @@
       "url": "/",
       "icons": [
         {
-          "src": "https://hsir-picker.hao-studio.tk/index.files/image/open_in_new_logo.png",
+          "src": "https://hsir-picker.pages.dev/index.files/image/open_in_new_logo.png",
           "sizes": "96x96",
           "type": "image/png"
         }
