@@ -1,6 +1,6 @@
 # **ALDF-Picker**
 ### **重要：此项目已正式 EOL (2022/05/10) ，Atomic Innovations 将不再负责维护！**
-### **[部署站点传送门](https://hsir-picker.pages.dev)**
+### **[部署站点传送门](https://hsir-picker.hao-studio.tk)**
 **YFXL 2024 届 (1) 班 定制项目 & 我的省科创作品**
 
 **由 Leo 霖 贡献**
