@@ -210,6 +210,6 @@ function PageOnLoad() {
     if (NumParam != null) {
         document.getElementById("NumH1").innerHTML = NumParam.padStart(2,0);
     }
-    alert("此系统已于 2023/05/10 正式 EOL，我们将不再进行任何维护！");
+    alert("此系统已于 2023/05/10 正式 EOL，我们将不再进行任何维护亦不保证其服务质量！");
 }
 window.onload = PageOnLoad
